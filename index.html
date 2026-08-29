@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name="theme-color" content="#00ff88">
+<title>SHAFTS IT - Phone Software Doctor | 0742 294 974</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+:root{--g:#00ff88;--g2:#00d4ff;--dark:#070e1f;--card:#132034;--b:#1f334f;--t:#94a3b8}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:Inter,system-ui,Arial;background:var(--dark);color:#fff;padding-bottom:95px;overflow-x:hidden}
+/* LOADER */
+#loader{position:fixed;inset:0;background:var(--dark);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:99999;transition:0.6s}
+.loader-logo{width:80px;height:80px;background:linear-gradient(135deg,var(--g),var(--g2));border-radius:20px;display:flex;align-items:center;justify-content:center;font-size:40px;font-weight:900;color:#000;animation:pulse 1.2s infinite}
+@keyframes pulse{0%,100%{transform:scale(1);box-shadow:0 0 0 0 rgba(0,255,136,0.7)}50%{transform:scale(1.05);box-shadow:0 0 0 18px rgba(0,255,136,0)}}
+.loader-bar{width:140px;height:3px;background:var(--card);border-radius:10px;margin-top:22px;overflow:hidden}
+.loader-bar span{display:block;height:100%;width:0%;background:var(--g);animation:load 1.8s ease-in-out forwards}
+@keyframes load{to{width:100%}}
+/* HEADER */
+.header{position:sticky;top:0;z-index:100;background:rgba(7,14,31,0.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--b);padding:12px 15px;display:flex;justify-content:space-between;align-items:center}
+.brand{display:flex;align-items:center;gap:10px}
+.brand-logo{width:42px;height:42px;background:linear-gradient(135deg,var(--g),var(--g2));border-radius:12px;display:flex;align-items:center;justify-content:center;color:#000;font-weight:900;font-size:22px}
+.brand h1{font-size:15px;line-height:1}
+.brand h1 b{color:var(--g)}
+.brand p{font-size:10px;color:var(--t);letter-spacing:1px}
+.header-call{background:var(--g);color:#000;padding:8px 14px;border-radius:20px;text-decoration:none;font-weight:800;font-size:12px}
+/* HERO */
+.hero{padding:18px 15px}
+.offer{background:linear-gradient(90deg,#ff2e4d,#ff8a00);border-radius:14px;padding:12px 14px;display:flex;justify-content:space-between;align-items:center}
+.offer h2{font-size:13px}
+.offer span{background:#000;color:#fff;padding:4px 8px;border-radius:20px;font-size:10px}
+.card{background:var(--card);border:1px solid var(--b);border-radius:18px;padding:16px;margin:14px 15px}
+.card h3{font-size:14px;color:var(--g);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.mini{background:#0c182d;border:1px solid var(--b);border-radius:12px;padding:12px;text-align:center}
+.mini i{color:var(--g);font-size:18px;margin-bottom:6px}
+.mini b{font-size:12px;display:block}
+.mini small{font-size:10px;color:var(--t)}
+.calc{border:2px dashed var(--g);background:linear-gradient(180deg,var(--card),#0c182d)}
+.calc select{width:100%;padding:13px;border-radius:10px;background:var(--dark);color:#fff;border:1px solid var(--b);margin:7px 0;font-size:13px}
+.priceBox{background:var(--dark);border:1px solid var(--g);border-radius:12px;padding:12px;text-align:center;margin:10px 0}
+.priceBox h2{color:var(--g);font-size:28px}
+.btn{display:block;width:100%;padding:14px;border-radius:12px;text-align:center;text-decoration:none;font-weight:900;font-size:14px;margin-top:8px}
+.btn-g{background:var(--g);color:#000}
+.btn-o{background:transparent;border:1.5px solid var(--g);color:var(--g)}
+.service-row{display:flex;justify-content:space-between;align-items:center;padding:13px 0;border-bottom:1px solid var(--b)}
+.service-row:last-child{border:0}
+.tag{background:rgba(0,255,136,0.15);color:var(--g);padding:3px 8px;border-radius:20px;font-size:10px;font-weight:800;border:1px solid var(--g)}
+.review{padding:12px 0;border-bottom:1px solid var(--b)}
+.review:last-child{border:0}
+.stars{color:#facc15;font-size:12px}
+.policy-item{background:var(--dark);border:1px solid var(--b);border-radius:12px;padding:12px;margin-bottom:10px}
+.policy-item h4{font-size:12px;color:var(--g);margin-bottom:4px}
+.policy-item p{font-size:11px;color:var(--t);line-height:1.5}
+/* BOTTOM NAV - SENIOR */
+.nav{position:fixed;bottom:0;left:0;right:0;background:#0f1d33;border-top:1px solid var(--g);display:flex;justify-content:space-around;padding:10px 0 20px 0;z-index:500;border-radius:22px 22px 0 0;box-shadow:0 -10px 30px rgba(0,0,0,0.5)}
+.nav button{background:none;border:none;color:var(--t);font-size:10px;font-weight:700;flex:1;display:flex;flex-direction:column;align-items:center;gap:4px}
+.nav button i{font-size:20px}
+.nav button.active{color:var(--g)}
+.nav button.active i{transform:translateY(-2px)}
+.section{display:none;animation:fade 0.3s}
+.section.active{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.map{height:180px;border-radius:12px;overflow:hidden;border:1px solid var(--b);margin-top:8px}
+</style>
+</head>
+<body>
+<!-- LOADER -->
+<div id="loader">
+<div class="loader-logo">S</div>
+<div style="margin-top:14px;font-weight:800;letter-spacing:2px">SHAFTS IT</div>
+<div style="font-size:11px;color:var(--t);margin-top:4px;letter-spacing:3px">PHONE SOFTWARE DOCTOR</div>
+<div class="loader-bar"><span></span></div>
+</div>
+
+<div class="header">
+<div class="brand">
+<div class="brand-logo">S</div>
+<div><h1>SHAFTS <b>IT</b></h1><p>PHONE SOFTWARE DOCTOR</p></div>
+</div>
+<a class="header-call" href="tel:0742294974"><i class="fa-solid fa-phone"></i> 0742 294 974</a>
+</div>
+
+<!-- HOME -->
+<div id="home" class="section active">
+<div class="hero">
+<div class="offer">
+<div><h2><i class="fa-solid fa-fire"></i> TODAY: Free Diagnosis</h2><p style="font-size:11px;opacity:0.9">10K-30K Price Range</p></div>
+<span>ENDS 9PM</span>
+</div>
+</div>
+
+<div class="card">
+<h3><i class="fa-solid fa-shield-halved"></i> WHY TRUST SHAFTS IT</h3>
+<div class="grid2">
+<div class="mini"><i class="fa-solid fa-microchip"></i><b>Software Expert</b><small>FRP / Flash / Unlock</small></div>
+<div class="mini"><i class="fa-solid fa-bolt"></i><b>20 Min Fix</b><small>Fast Service</small></div>
+<div class="mini"><i class="fa-solid fa-hand-holding-dollar"></i><b>10K - 30K</b><small>No Hidden Cost</small></div>
+<div class="mini"><i class="fa-solid fa-award"></i><b>6 Months Warranty</b><small>On All Repairs</small></div>
+</div>
+</div>
+
+<div class="card calc">
+<h3><i class="fa-solid fa-calculator"></i> CALCULATE BEFORE COMING</h3>
+<select id="model"><option>Tecno / Infinix / Samsung / iPhone</option><option>Tecno Spark / Pop / Camon</option><option>Infinix Hot / Note / Smart</option><option>Samsung A / M Series</option><option>iPhone</option></select>
+<select id="issue" onchange="calc()"><option value="5000">APN / Internet Settings - 5K</option><option value="8000">Flash / Software - 8K</option><option value="10000">FRP Bypass / Google Lock - 10K</option><option value="10000">Virus / Safety Removal - 10K</option><option value="10000">Pattern / Password Unlock - 10K</option><option value="15000">Dead Phone Recovery - 15K</option><option value="15000">Screen + Software - from 15K</option><option value="8000">Wear & Tear Deep Clean - 8K</option></select>
+<div class="priceBox"><small style="color:var(--t)">DOCTOR ESTIMATE</small><h2 id="price">UGX 5,000</h2><small style="color:var(--t)">Final after physical check</small></div>
+<a class="btn btn-g" href="#" onclick="book()"><i class="fa-brands fa-whatsapp"></i> CHAT DOCTOR ON WHATSAPP</a>
+<a class="btn btn-o" href="tel:0742294974"><i class="fa-solid fa-phone"></i> CALL DOCTOR: 0742 294 974</a>
+</div>
+
+<div class="card">
+<h3><i class="fa-solid fa-location-dot"></i> FIND SHAFTS IT</h3>
+<p style="font-size:11px;color:var(--t)">Kayabwe Town Council, Opposite Taxi Park, Mpigi Road</p>
+<div class="map"><iframe src="https://maps.google.com/maps?q=Kayabwe,Uganda&z=15&output=embed" width="100%" height="100%" style="border:0"></iframe></div>
+<a class="btn btn-g" href="https://wa.me/256742294974" style="margin-top:10px">GET DIRECTIONS - WHATSAPP</a>
+</div>
+</div>
+
+<!-- SERVICES -->
+<div id="services" class="section">
+<div class="card">
+<h3><i class="fa-solid fa-screwdriver-wrench"></i> DOCTOR SERVICES - 10K TO 30K</h3>
+<div class="service-row"><span><i class="fa-solid fa-signal" style="color:var(--g)"></i> APN / Internet Setup</span><span class="tag">5K</span></div>
+<div class="service-row"><span><i class="fa-solid fa-gears" style="color:var(--g)"></i> Software Flash / Update</span><span class="tag">8K</span></div>
+<div class="service-row"><span><i class="fa-solid fa-unlock" style="color:var(--g)"></i> FRP Bypass / Google Lock</span><span class="tag">10K</span></div>
+<div class="service-row"><span><i class="fa-solid fa-shield-virus" style="color:var(--g)"></i> Virus / Safety Removal</span><span class="tag">10K</span></div>
+<div class="service-row"><span><i class="fa-solid fa-key" style="color:var(--g)"></i> Pattern / Password Unlock</span><span class="tag">10K</span></div>
+<div class="service-row"><span><i class="fa-solid fa-battery-half" style="color:var(--g)"></i> Battery & Charging System</span><span class="tag">12K</span></div>
+<div class="service-row"><span><i class="fa-solid fa-mobile-screen" style="color:var(--g)"></i> Screen + Software Calibration</span><span class="tag">15K+</span></div>
+<div class="service-row"><span><i class="fa-solid fa-triangle-exclamation" style="color:var(--g)"></i> Dead / Bootloop Recovery</span><span class="tag">15K+</span></div>
+</div>
+</div>
+
+<!-- REVIEWS -->
+<div id="reviews" class="section">
+<div class="card">
+<h3><i class="fa-solid fa-star"></i> PATIENT REVIEWS - 4.9/5</h3>
+<div class="review"><div class="stars">★★★★★</div><b>Musoke John - Tecno Camon 20</b><p style="font-size:12px;color:var(--t);margin:4px 0">FRP locked after reset. Doctor fixed 10K in 15 mins. Real doctor!</p><small style="color:var(--t)">2 days ago - Kayabwe</small></div>
+<div class="review"><div class="stars">★★★★★</div><b>Sarah N - Samsung A14</b><p style="font-size:12px;color:var(--t);margin:4px 0">APN refused 2 weeks. SHAFTS IT fixed 5K. Fast!</p><small style="color:var(--t)">Verified • 1 week ago</small></div>
+<div class="review"><div class="stars">★★★★★</div><b>Kato Isaac - Infinix Hot 40</b><p style="font-size:12px;color:var(--t);margin:4px 0">Dead phone after water. Doctor recovered 15K. 6 months warranty given.</p><small style="color:var(--t)">3 days ago - Kayabwe Town</small></div>
+<div class="review"><div class="stars">★★★★★</div><b>Mama Fatuma - Tecno Pop 7</b><p style="font-size:12px;color:var(--t);margin:4px 0">Virus & safety issue, phone slow. Now fast after doctor clean 10K.</p><small style="color:var(--t)">5 days ago</small></div>
+<div class="review"><div class="stars">★★★★★</div><b>Okello P - iPhone 7</b><p style="font-size:12px;color:var(--t);margin:4px 0">Wear and tear too much. Made it new. 0742 294 974 is legit.</p><small style="color:var(--t)">1 week ago - Lukaya</small></div>
+</div>
+</div>
+
+<!-- POLICY - SENIOR -->
+<div id="policy" class="section">
+<div class="card">
+<h3><i class="fa-solid fa-file-contract"></i> SHAFTS IT POLICIES</h3>
+<div class="policy-item"><h4><i class="fa-solid fa-shield"></i> Privacy Policy</h4><p>We never share your phone data, photos or passwords. All FRP and unlock jobs are done in front of you. Your privacy is safe with SHAFTS IT Doctor. Data deleted after repair if requested.</p></div>
+<div class="policy-item"><h4><i class="fa-solid fa-award"></i> Warranty Policy - 6 Months</h4><p>All software repairs have 6 months warranty. If same problem returns within 6 months, we fix FREE. No warranty on water damage and physical damage after repair.</p></div>
+<div class="policy-item"><h4><i class="fa-solid fa-money-bill"></i> Pricing Policy - 10K to 30K</h4><p>Calculator shows estimate. Final price after physical check. No hidden charges. If you refuse repair after diagnosis, you pay 0 UGX for software check. We are transparent.</p></div>
+<div class="policy-item"><h4><i class="fa-solid fa-clock"></i> Time Policy</h4><p>Software: 20-30 mins. Hardware + Software: 1 hour max. If we delay more than promised, you get free screen protector.</p></div>
+<div class="policy-item"><h4><i class="fa-solid fa-location-dot"></i> Contact & Legal</h4><p>SHAFTS IT - Phone Software Doctor<br>Kayabwe Town, Mpigi Road<br>Tel: 0742 294 974 / WhatsApp: +256 742 294 974<br>Registered: Kayabwe Town Council 2020<br>All Rights Reserved © 2026 SHAFTS IT</p></div>
+<a class="btn btn-g" href="https://wa.me/256742294974?text=Hello%20SHAFTS%20IT,%20I%20read%20your%20policy">I AGREE - CHAT DOCTOR</a>
+</div>
+</div>
+
+<!-- BOTTOM NAV SENIOR -->
+<div class="nav">
+<button class="active" onclick="go('home',this)"><i class="fa-solid fa-house"></i>HOME</button>
+<button onclick="go('services',this)"><i class="fa-solid fa-screwdriver-wrench"></i>SERVICES</button>
+<button onclick="go('reviews',this)"><i class="fa-solid fa-star"></i>REVIEWS</button>
+<button onclick="go('policy',this)"><i class="fa-solid fa-file-shield"></i>POLICY</button>
+</div>
+
+<script>
+// LOADER OUT
+window.addEventListener('load',()=>{setTimeout(()=>{document.getElementById('loader').style.opacity='0';setTimeout(()=>document.getElementById('loader').style.display='none',600)},1500)});
+// NAV
+function go(id,btn){
+document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+document.getElementById(id).classList.add('active');
+document.querySelectorAll('.nav button').forEach(b=>b.classList.remove('active'));
+btn.classList.add('active');
+window.scrollTo({top:0,behavior:'smooth'});
+}
+function calc(){document.getElementById('price').innerText='UGX '+document.getElementById('issue').value}
+function book(){
+let p=document.getElementById('price').innerText;
+let m=document.getElementById('model').value;
+window.open('https://wa.me/256742294974?text=Hello%20SHAFTS%20IT%20Doctor!%20Model:'+encodeURIComponent(m)+'%20Price:'+encodeURIComponent(p)+'%20Need%20repair%20now');
+}
+calc();
+</script>
+</body>
+  </html>
