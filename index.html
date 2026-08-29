@@ -87,7 +87,7 @@ body{font-family:Inter,system-ui,Arial;background:var(--dark);color:#fff;padding
 <div class="hero">
 <div class="offer">
 <div><h2><i class="fa-solid fa-fire"></i> TODAY'S OFFER:Any phone problem you have is at 1k</h2><p style="font-size:11px;opacity:0.9">1k only dear customer</p></div>
-<span>ENDS AT 9:00PM</span>
+span id="offer-timer">ENDS AT 9:00PM</span>
 </div>
 </div>
 
@@ -177,7 +177,9 @@ document.querySelectorAll('.nav button').forEach(b=>b.classList.remove('active')
 btn.classList.add('active');
 window.scrollTo({top:0,behavior:'smooth'});
 }
+function updateOfferTimer(){var n=new Date();var e=new Date();e.setHours(21,0,0,0);var d=e-n;var el=document.getElementById('offer-timer');if(!el)return;if(d<=0){el.innerHTML="OFFER ENDED";return;}var h=Math.floor(d/3600000);var m=Math.floor(d%3600000/60000);var s=Math.floor(d%60000/1000);el.innerHTML="ENDS IN "+h+"h "+m+"m "+s+"s";}setInterval(updateOfferTimer,1000);updateOfferTimer();  
 function calc(){document.getElementById('price').innerText='UGX '+document.getElementById('issue').value}
+  
 function book(){
 let p=document.getElementById('price').innerText;
 let m=document.getElementById('model').value;
